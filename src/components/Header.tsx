@@ -1,27 +1,38 @@
-import { View, StyleSheet, Text } from 'react-native'
-
-// import 
+import styled from 'styled-components/native'
+import avatar from '../assets/avatar.png'
 
 export function Header() {
     return (
-        <View style={styles.header}>
-            <View style={styles.welcome}>
-                <Text>
-                    Hey, <Text>Usuário
-                </Text>
-            </View>
-        </View>
+        <HeaderContainer>
+            <WelcomeTitle>
+                Hey, <TextBold>Usuário</TextBold> {'\n'}
+                O que vai pedir?
+            </WelcomeTitle>
+            <Avatar
+               source={avatar} 
+            />
+        </HeaderContainer>
     )
 }
 
-const styles = StyleSheet.create({
-    header: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    welcome: {
-        flexDirection: 'column',
-        alignItems: 'flex-start'
-    }
-})
+const HeaderContainer = styled.View`
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+`
+
+const WelcomeTitle = styled.Text`
+    font-size: 18px;
+    line-height: 22px;
+`
+
+const TextBold = styled.Text`
+    font-weight: bold;
+`
+
+const Avatar = styled.Image`
+    width: 51px;
+    height: 51px;
+    border-radius: 50px;
+`
