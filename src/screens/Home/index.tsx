@@ -1,19 +1,10 @@
-import { View, StyleSheet } from 'react-native'
-import { Header } from '../../components/Header'
+import { Wrapper } from "../../components/Wrapper";
+import { Title } from "./styles";
 
 export function Home() {
-    return (
-        <View style={styles.container}>
-            <Header />
-        </View>
-    )
+  return (
+    <Wrapper>
+      <Title>Home Screen</Title>
+    </Wrapper>
+  );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        paddingTop: 44,
-        paddingHorizontal: 16
-    }
-})
