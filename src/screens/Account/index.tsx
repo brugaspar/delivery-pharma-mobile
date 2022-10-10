@@ -1,10 +1,10 @@
 import { Wrapper } from "../../components/Wrapper";
 import { Title } from "./styles";
 
-export function Products() {
+export function Account() {
   return (
     <Wrapper>
-      <Title>Products Screen</Title>
+      <Title>Account Screen</Title>
     </Wrapper>
   );
 }

@@ -1,20 +1,31 @@
-import "react-native-gesture-handler";
-import { StatusBar } from "react-native";
+import { useEffect, useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { useFonts } from "./src/hooks/fonts.hook";
 
+import { AuthenticationProvider } from "./src/contexts/AuthenticationContext";
 import { Routes } from "./src/routes";
 
-import { AppProvider } from "./src/hooks";
-//import { Loading } from './src/components/Loading';
-
 export default function App() {
-	return (
-		<AppProvider>
-			<StatusBar
-				barStyle="dark-content"
-				backgroundColor="transparent"
-				translucent
-			/>
-			<Routes />
-		</AppProvider>
-	);
+  const [isFontsLoaded, setIsFontsLoaded] = useState(false);
+
+  useEffect(() => {
+    async function loadFonts() {
+      await useFonts();
+      setIsFontsLoaded(true);
+    }
+
+    loadFonts();
+  }, []);
+
+  if (!isFontsLoaded) {
+    return null;
+  }
+
+  return (
+    <NavigationContainer>
+      <AuthenticationProvider>
+        <Routes />
+      </AuthenticationProvider>
+    </NavigationContainer>
+  );
 }
