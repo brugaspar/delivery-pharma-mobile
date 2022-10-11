@@ -34,3 +34,9 @@ export const Highlight = styled.Text`
   font-family: ${styles.fonts.medium};
   color: ${styles.colors.heading};
 `;
+
+export const Divider = styled.View`
+  height: 1px;
+  background: ${styles.colors.border};
+  margin: 5px 0;
+`;

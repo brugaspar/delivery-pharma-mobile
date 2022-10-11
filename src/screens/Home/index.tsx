@@ -3,7 +3,9 @@ import * as Icon from "phosphor-react-native";
 
 import { Wrapper } from "../../components/Wrapper";
 import { Input } from "../../components/Input";
-import { Highlight, styles } from "../../globals/styles.global";
+import { HorizontalCategories } from "../../components/HorizontalCategories";
+import { ProductsList } from "../../components/ProductsList";
+import { Divider, Highlight, styles } from "../../globals/styles.global";
 import { Header, ProfileButton, Subtitle, Title, Username } from "./styles";
 
 export function Home() {
@@ -28,6 +30,16 @@ export function Home() {
       </Header>
 
       <Input icon="MagnifyingGlass" placeholder="Pesquisar produto" />
+
+      <HorizontalCategories />
+
+      <Subtitle>
+        <Highlight>Populares</Highlight>
+      </Subtitle>
+
+      <Divider style={{ marginBottom: 0 }} />
+
+      <ProductsList />
     </Wrapper>
   );
 }
