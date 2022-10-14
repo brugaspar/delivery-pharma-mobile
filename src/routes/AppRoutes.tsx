@@ -6,6 +6,7 @@ import { Home } from "../screens/Home";
 import { Products } from "../screens/Products";
 import { Orders } from "../screens/Orders";
 import { Account } from "../screens/Account";
+import { Search } from "../screens/Search";
 
 import { styles } from "../globals/styles.global";
 
@@ -41,7 +42,9 @@ function TabRoutes() {
         name="Home"
         options={{
           title: "Início",
-          tabBarIcon: ({focused, ...props}) => <Icon.House weight={focused ? "duotone" : "regular"} {...props} />
+          tabBarIcon: ({ focused, ...props }) => (
+            <Icon.House weight={focused ? "duotone" : "regular"} {...props} />
+          ),
         }}
       />
       <Tab.Screen
@@ -49,7 +52,9 @@ function TabRoutes() {
         name="Products"
         options={{
           title: "Produtos",
-          tabBarIcon: ({focused, ...props}) => <Icon.Package weight={focused ? "duotone" : "regular"} {...props} />
+          tabBarIcon: ({ focused, ...props }) => (
+            <Icon.Package weight={focused ? "duotone" : "regular"} {...props} />
+          ),
         }}
       />
       <Tab.Screen
@@ -57,7 +62,12 @@ function TabRoutes() {
         name="Orders"
         options={{
           title: "Pedidos",
-          tabBarIcon: ({focused, ...props}) => <Icon.ShoppingCartSimple weight={focused ? "duotone" : "regular"} {...props} />
+          tabBarIcon: ({ focused, ...props }) => (
+            <Icon.ShoppingCartSimple
+              weight={focused ? "duotone" : "regular"}
+              {...props}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -65,7 +75,9 @@ function TabRoutes() {
         name="Account"
         options={{
           title: "Conta",
-          tabBarIcon: ({focused, ...props}) => <Icon.User weight={focused ? "duotone" : "regular"} {...props} />
+          tabBarIcon: ({ focused, ...props }) => (
+            <Icon.User weight={focused ? "duotone" : "regular"} {...props} />
+          ),
         }}
       />
     </Tab.Navigator>
@@ -78,10 +90,15 @@ export function AppRoutes() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: false
+        headerShown: false,
       }}
     >
       <Stack.Screen component={TabRoutes} name="TabRoutes" />
+      <Stack.Screen
+        component={Search}
+        name="Search"
+        options={{ animation: "fade" }}
+      />
     </Stack.Navigator>
   );
 }

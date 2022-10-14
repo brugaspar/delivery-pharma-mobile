@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import * as Icon from "phosphor-react-native";
 
 import { Wrapper } from "../../components/Wrapper";
-import { Input } from "../../components/Input";
+import { SearchInput } from "../../components/SearchInput";
 import { HorizontalCategories } from "../../components/HorizontalCategories";
 import { ProductsList } from "../../components/ProductsList";
 import { Divider, Highlight, styles } from "../../globals/styles.global";
@@ -29,7 +29,7 @@ export function Home() {
         </ProfileButton>
       </Header>
 
-      <Input icon="MagnifyingGlass" placeholder="Pesquisar produto" />
+      <SearchInput />
 
       <HorizontalCategories />
 
