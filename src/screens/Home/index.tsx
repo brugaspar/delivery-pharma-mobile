@@ -29,11 +29,11 @@ export function Home() {
         </ProfileButton>
       </Header>
 
-      <SearchInput />
+      <SearchInput style={{ marginBottom: 20 }} />
 
       <HorizontalCategories />
 
-      <Subtitle>
+      <Subtitle style={{ marginTop: 20 }}>
         <Highlight>Populares</Highlight>
       </Subtitle>
 

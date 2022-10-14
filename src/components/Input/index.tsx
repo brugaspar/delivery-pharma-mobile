@@ -2,16 +2,29 @@ import { useState } from "react";
 import { TextInputProps } from "react-native";
 import * as Icon from "phosphor-react-native";
 
-import { Container, IconContainer, InputContainer, Label, TextInput } from "./styles";
+import {
+  Container,
+  IconContainer,
+  InputContainer,
+  Label,
+  TextInput,
+} from "./styles";
 import { styles } from "../../globals/styles.global";
 
 interface InputProps extends TextInputProps {
+  inputRef?: any;
   label?: string;
   icon?: keyof typeof Icon;
   type?: "text" | "password";
 }
 
-export function Input({ label, icon, type = "text", ...props }: InputProps) {
+export function Input({
+  inputRef,
+  label,
+  icon,
+  type = "text",
+  ...props
+}: InputProps) {
   const CustomIcon = icon ? (Icon[icon] as any) : null;
   const isPassword = type === "password";
 
@@ -32,10 +45,20 @@ export function Input({ label, icon, type = "text", ...props }: InputProps) {
           </IconContainer>
         )}
 
-        <TextInput {...props} selectionState={undefined} secureTextEntry={secureTextEntry} autoCapitalize="none" />
+        <TextInput
+          {...props}
+          ref={inputRef}
+          selectionState={undefined}
+          secureTextEntry={secureTextEntry}
+          autoCapitalize="none"
+        />
 
         {isPassword && (
-          <IconContainer style={{ alignItems: "flex-end" }} activeOpacity={0.6} onPress={handleToggleSecureTextEntry}>
+          <IconContainer
+            style={{ alignItems: "flex-end" }}
+            activeOpacity={0.6}
+            onPress={handleToggleSecureTextEntry}
+          >
             {secureTextEntry ? (
               <Icon.EyeSlash color={styles.colors.heading} size={25} />
             ) : (

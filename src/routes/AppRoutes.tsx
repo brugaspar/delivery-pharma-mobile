@@ -7,6 +7,7 @@ import { Products } from "../screens/Products";
 import { Orders } from "../screens/Orders";
 import { Account } from "../screens/Account";
 import { Search } from "../screens/Search";
+import { CategoryProducts } from "../screens/CategoryProducts";
 
 import { styles } from "../globals/styles.global";
 
@@ -97,6 +98,11 @@ export function AppRoutes() {
       <Stack.Screen
         component={Search}
         name="Search"
+        options={{ animation: "fade" }}
+      />
+      <Stack.Screen
+        component={CategoryProducts}
+        name="CategoryProducts"
         options={{ animation: "fade" }}
       />
     </Stack.Navigator>

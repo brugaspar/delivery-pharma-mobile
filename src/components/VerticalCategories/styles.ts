@@ -3,7 +3,6 @@ import { styles } from "../../globals/styles.global";
 
 export const Container = styled.View`
   background: ${styles.colors.background};
-  margin: 0 -16px;
 `;
 
 export const ScrollView = styled.ScrollView`
@@ -11,19 +10,19 @@ export const ScrollView = styled.ScrollView`
 `;
 
 export const Card = styled.TouchableOpacity`
-  width: 95px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   padding: 10px;
   background: ${styles.colors.contrast};
   border: 1px solid ${styles.colors.border};
   border-radius: 10px;
-
-  align-items: center;
-  justify-content: center;
 `;
 
 export const Title = styled.Text`
   font-family: ${styles.fonts.regular};
-  font-size: ${styles.sizes.normal};
+  font-size: ${styles.sizes.body};
 
   margin-top: 5px;
+  margin-left: 15px;
 `;

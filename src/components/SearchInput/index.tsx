@@ -1,8 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacityProps } from "react-native";
 import { Input } from "../Input";
 import { Container } from "./styles";
 
-export function SearchInput() {
+interface SearchInputProps extends TouchableOpacityProps {}
+
+export function SearchInput({ ...props }: SearchInputProps) {
   const navigation = useNavigation();
 
   function handleGoToSearchScreen() {
@@ -10,7 +13,7 @@ export function SearchInput() {
   }
 
   return (
-    <Container activeOpacity={0.7} onPress={handleGoToSearchScreen}>
+    <Container {...props} activeOpacity={0.7} onPress={handleGoToSearchScreen}>
       <Input
         editable={false}
         icon="MagnifyingGlass"
