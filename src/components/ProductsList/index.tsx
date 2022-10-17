@@ -4,12 +4,13 @@ import { List } from "../List";
 import { Divider, styles } from "../../globals/styles.global";
 import { Image, ImageContainer, Item, Price, Row, Title } from "./styles";
 import { formatCurrency } from "../../utils/format.util";
+import { useNavigation } from "@react-navigation/native";
 
 interface ProductsListProps {
   categoryId?: string;
 }
 
-interface ProductData {
+export interface ProductData {
   id: string;
   name: string;
   price: number;
@@ -91,6 +92,12 @@ const products: ProductData[] = [
 ];
 
 export function ProductsList({ categoryId }: ProductsListProps) {
+  const navigation = useNavigation()
+  
+  function handleProductDetails(data: ProductData) {
+    navigation.navigate('ProductDetails' as never, { data } as never)
+  }
+
   return (
     <List
       data={products}
@@ -103,6 +110,7 @@ export function ProductsList({ categoryId }: ProductsListProps) {
             marginLeft: index % 2 ? 8 : 0,
             marginTop: index > 1 ? 8 : 0,
           }}
+          onPress={() => handleProductDetails(item)}
           activeOpacity={0.6}
         >
           <Row>

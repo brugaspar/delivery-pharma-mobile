@@ -10,6 +10,7 @@ import { Search } from "../screens/Search";
 import { CategoryProducts } from "../screens/CategoryProducts";
 
 import { styles } from "../globals/styles.global";
+import { ProductDetails } from "../screens/ProductDetails";
 
 const Tab = createBottomTabNavigator();
 
@@ -103,6 +104,11 @@ export function AppRoutes() {
       <Stack.Screen
         component={CategoryProducts}
         name="CategoryProducts"
+        options={{ animation: "fade" }}
+      />
+      <Stack.Screen
+        component={ProductDetails}
+        name="ProductDetails"
         options={{ animation: "fade" }}
       />
     </Stack.Navigator>
