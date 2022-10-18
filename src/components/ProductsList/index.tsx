@@ -27,8 +27,7 @@ const products: ProductData[] = [
     id: "1",
     name: "Tylenon | Paracetamol",
     price: 42.99,
-    imageUri:
-      "https://www.tylenol.com.br/sites/tylenol_br/files/tylenol-500-21.png",
+    imageUri: "https://www.tylenol.com.br/sites/tylenol_br/files/tylenol-500-21.png",
   },
   {
     id: "2",
@@ -47,8 +46,7 @@ const products: ProductData[] = [
     id: "4",
     name: "Nimesulida",
     price: 42.99,
-    imageUri:
-      "https://www.farmasesi.com.br/estatico/sesi/images/produto/13653.jpeg",
+    imageUri: "https://www.farmasesi.com.br/estatico/sesi/images/produto/13653.jpeg",
   },
   {
     id: "5",
@@ -61,15 +59,13 @@ const products: ProductData[] = [
     id: "6",
     name: "Teste de Gravidez GravtestEasy",
     price: 42.99,
-    imageUri:
-      "https://farmaciaindiana.vteximg.com.br/arquivos/ids/240949/7898075310383.jpg?v=637601393668800000",
+    imageUri: "https://farmaciaindiana.vteximg.com.br/arquivos/ids/240949/7898075310383.jpg?v=637601393668800000",
   },
   {
     id: "7",
     name: "Cimegripe",
     price: 42.99,
-    imageUri:
-      "https://www.drogariaminasbrasil.com.br/media/product/aba/cimegripe-com-20-capsulas-01b.jpg",
+    imageUri: "https://www.drogariaminasbrasil.com.br/media/product/aba/cimegripe-com-20-capsulas-01b.jpg",
   },
   {
     id: "8",
@@ -92,10 +88,10 @@ const products: ProductData[] = [
 ];
 
 export function ProductsList({ categoryId }: ProductsListProps) {
-  const navigation = useNavigation()
-  
-  function handleProductDetails(data: ProductData) {
-    navigation.navigate('ProductDetails' as never, { data } as never)
+  const navigation = useNavigation();
+
+  function handleProductDetails(product: ProductData) {
+    navigation.navigate("ProductDetails" as never, { product } as never);
   }
 
   return (
@@ -117,9 +113,7 @@ export function ProductsList({ categoryId }: ProductsListProps) {
             <ImageContainer
               style={{
                 borderWidth: item.imageUri ? 0 : 1,
-                backgroundColor: item.imageUri
-                  ? styles.colors.contrast
-                  : styles.colors.background,
+                backgroundColor: item.imageUri ? styles.colors.contrast : styles.colors.background,
               }}
             >
               {item.imageUri ? (
@@ -128,12 +122,7 @@ export function ProductsList({ categoryId }: ProductsListProps) {
                 <Icon.CameraSlash color={styles.colors.border} size={30} />
               )}
             </ImageContainer>
-            <Icon.ArrowSquareOut
-              style={{ alignSelf: "flex-start" }}
-              color={styles.colors.blue}
-              size={15}
-              weight="fill"
-            />
+            <Icon.ArrowSquareOut style={{ alignSelf: "flex-start" }} color={styles.colors.blue} size={15} weight="fill" />
           </Row>
           <Title numberOfLines={2}>{item.name}</Title>
           <Divider />
